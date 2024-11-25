@@ -2,7 +2,7 @@ export default {
     root: '.',
     publicDir: 'images', // 정적 assets
     build: {
-      outDir: 'dist',
+      outDir: 'out',
       assetsDir: 'assets'
     },
     server: {
