@@ -12,7 +12,3 @@ function showTopBar(){
 
 
 showTopBar();
-
-
-
-
