@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - chapter4-1-jungyoon
+      - chapter4-2-jungyoon
   pull_request:
     types:
       - closed
@@ -30,8 +30,8 @@ jobs:
         run: |
           gh pr create \
             --base main \
-            --head "chapter4-1-jungyoon" \
-            --title "[9팀 이정윤] Chapter 4-1 성능 최적화 Part 1" \
+            --head "chapter4-2-jungyoon" \
+            --title "[9팀 이정윤] Chapter 4-2 성능 최적화 Part 2" \
             --body-file .github/pull_request_template.md \
             || echo "PR already exists"
 
