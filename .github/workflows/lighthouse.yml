@@ -9,7 +9,7 @@ on:
       url:
         description: 'URL to run Lighthouse on'
         required: false
-        default: 'http://localhost:8080'
+        default: 'https://d3ko9vd7loegqu.cloudfront.net'
 
 permissions:
   issues: write
@@ -39,7 +39,7 @@ jobs:
         id: lighthouse
         continue-on-error: true
         run: |
-          URL="${{ github.event.inputs.url || 'http://localhost:8080' }}"
+          URL="${{ github.event.inputs.url || 'https://d3ko9vd7loegqu.cloudfront.net' }}"
           lhci autorun --collect.url=$URL
           
       - name: Create GitHub Issue with Results
@@ -50,6 +50,7 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
+            const commitMessage = context.payload.head_commit ? context.payload.head_commit.message : '';
             
             const lhciDir = '.lighthouseci';
             const jsonReports = fs.readdirSync(lhciDir).filter(f => f.endsWith('.json'));
@@ -113,6 +114,9 @@ jobs:
             const reportUrl = `.lighthouseci/${latestReport.replace('.json', '.html')}`;
             
             const body = `## 🚨 웹사이트 성능 측정 결과
+
+            ### 💡 최근 변경사항
+            ${commitMessage}
 
             ### 🎯 Lighthouse 점수
             | 카테고리 | 점수 | 상태 |
