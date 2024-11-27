@@ -61,11 +61,9 @@ jobs:
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const fs = require('fs');
-            const path = require('path');
 
             const commitMessage = process.env.COMMIT_MESSAGE || '${{ steps.commit.outputs.message }}' || 'No commit message available';
+
             const lhciDir = '.lighthouseci';
             const jsonReports = fs.readdirSync(lhciDir).filter(f => f.endsWith('.json'));
             const latestReport = jsonReports.sort().reverse()[0];
