@@ -14,11 +14,20 @@ on:
 permissions:
   issues: write
   contents: read
+  pull-requests: write
+  checks: write
 
 jobs:
   lighthouse-audit:
     name: Lighthouse Audit
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      checks: write
+    
     steps:
       - uses: actions/checkout@v4
       
@@ -41,6 +50,11 @@ jobs:
         run: |
           URL="${{ github.event.inputs.url || 'http://localhost:8080' }}"
           lhci autorun --collect.url=$URL
+
+      - name: Get commit message
+        id: commit
+        run: |
+          echo "message=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
           
       - name: Create GitHub Issue with Results
         if: always()
