@@ -41,6 +41,11 @@ jobs:
         run: |
           URL="${{ github.event.inputs.url || 'https://d3ko9vd7loegqu.cloudfront.net/' }}"
           lhci autorun --collect.url=$URL
+
+      - name: Get commit message
+        id: commit
+        run: |
+          echo "message=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
           
       - name: Create GitHub Issue with Results
         if: always()
@@ -50,14 +55,13 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
-            const { execSync } = require('child_process');
-            
+
+            const commitMessage = '${{ steps.commit.outputs.message }}';
             const lhciDir = '.lighthouseci';
             const jsonReports = fs.readdirSync(lhciDir).filter(f => f.endsWith('.json'));
             const latestReport = jsonReports.sort().reverse()[0];
             const reportPath = path.join(lhciDir, latestReport);
             const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-            const commitMessage = execSync('git log -1 --pretty=%B').toString().trim();
 
             const formatScore = (value = 0) => {
               return Math.round(value * 100);
