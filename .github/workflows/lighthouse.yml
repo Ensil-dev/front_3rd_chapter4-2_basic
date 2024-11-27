@@ -46,16 +46,18 @@ jobs:
         if: always()
         uses: actions/github-script@v6
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ github.token }}c
           script: |
             const fs = require('fs');
             const path = require('path');
+            const { execSync } = require('child_process');
             
             const lhciDir = '.lighthouseci';
             const jsonReports = fs.readdirSync(lhciDir).filter(f => f.endsWith('.json'));
             const latestReport = jsonReports.sort().reverse()[0];
             const reportPath = path.join(lhciDir, latestReport);
             const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+            const commitMessage = execSync('git log -1 --pretty=%B').toString().trim();
 
             const formatScore = (value = 0) => {
               return Math.round(value * 100);
@@ -113,6 +115,9 @@ jobs:
             const reportUrl = `.lighthouseci/${latestReport.replace('.json', '.html')}`;
             
             const body = `## 🚨 웹사이트 성능 측정 결과
+
+            ### 💡 최근 변경사항
+            ${commitMessage}
 
             ### 🎯 Lighthouse 점수
             | 카테고리 | 점수 | 상태 |

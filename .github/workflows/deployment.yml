@@ -28,10 +28,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          COMMIT_MSG=$(git log -1 --pretty=%s)
           gh pr create \
             --base main \
             --head "chapter4-2-jungyoon" \
-            --title "[9팀 이정윤] Chapter 4-2 성능 최적화 Part 2" \
+            --title "[9팀 이정윤] Chapter 4-2 성능 최적화 Part 2 🔰${COMMIT_MSG}" \
             --body-file .github/pull_request_template.md \
             || echo "PR already exists"
 
