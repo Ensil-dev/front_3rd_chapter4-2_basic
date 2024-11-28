@@ -47,33 +47,6 @@
                 });
             });
         </script>
-
-        <!-- 모바일 이미지 preload -->
-        <link
-            rel="preload"
-            as="image"
-            href="images/Hero_Mobile.webp"
-            media="(max-width: 575px)"
-            fetchpriority="high"
-        />
-
-        <!-- 태블릿 이미지 preload -->
-        <link
-            rel="preload"
-            as="image"
-            href="images/Hero_Tablet.webp"
-            media="(min-width: 576px) and (max-width: 960px)"
-            fetchpriority="high"
-        />
-
-        <!-- 데스크톱 이미지 preload -->
-        <link
-            rel="preload"
-            as="image"
-            href="images/Hero_Desktop.webp"
-            media="(min-width: 961px)"
-            fetchpriority="high"
-        />
     </head>
 
     <body>
@@ -126,7 +99,7 @@
                     width="576"
                     height="576"
                     media="(max-width: 575px)"
-                    srcset="images/Hero_Mobile.webp?quality=80 576w"
+                    srcset="images/Hero_Mobile.webp 576w"
                 />
 
                 <source
@@ -134,13 +107,13 @@
                     width="960"
                     height="770"
                     media="(min-width: 576px) and (max-width: 960px)"
-                    srcset="images/Hero_Tablet.webp?quality=80 960w"
+                    srcset="images/Hero_Tablet.webp 960w"
                 />
 
                 <img
                     width="1440"
                     height="670"
-                    srcset="images/Hero_Desktop.webp?quality=80 1440w"
+                    srcset="images/Hero_Desktop.webp 1440w"
                     alt="VR Headset showcase banner"
                     fetchpriority="high"
                 />
@@ -159,10 +132,8 @@
                             <img
                                 width="150"
                                 height="150"
-
-                                srcset="images/vr1.webp?quality=80"
+                                srcset="images/vr1.webp"
                                 alt="product: Penom Case"
-                                style="aspect-ratio: 1 / 1; object-fit: cover"
                             />
                         </div>
                         <div class="product-info">
@@ -180,10 +151,8 @@
                             <img
                                 width="150"
                                 height="150"
-
-                                srcset="images/vr2.webp?quality=80"
+                                srcset="images/vr2.webp"
                                 alt="product: Noise Cancelling Headphone"
-                                style="aspect-ratio: 1 / 1; object-fit: cover"
                             />
                         </div>
                         <div class="product-info">
@@ -201,10 +170,8 @@
                             <img
                                 width="150"
                                 height="150"
-
-                                srcset="images/vr3.webp?quality=80"
+                                srcset="images/vr3.webp"
                                 alt="product: Canon Digital SLR EOS Rebel T6"
-                                style="aspect-ratio: 1 / 1; object-fit: cover"
                             />
                         </div>
                         <div class="product-info">
