@@ -5,10 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Tech Shop</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="/css/styles.css" />
     <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
     <!-- Google Tag Manager -->
@@ -28,21 +24,24 @@
 
     <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
     <script
+      defer
       type="text/javascript"
       src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
       charset="UTF-8"
     ></script>
-    <script type="text/javascript" charset="UTF-8">
-      cookieconsent.run({
-        notice_banner_type: 'simple',
-        consent_type: 'express',
-        palette: 'light',
-        language: 'en',
-        page_load_consent_levels: ['strictly-necessary'],
-        notice_banner_reject_button_hide: false,
-        preferences_center_close_button_hide: false,
-        page_refresh_confirmation_buttons: false,
-        website_name: 'Performance Course',
+    <script defer type="text/javascript" charset="UTF-8">
+      document.addEventListener('DOMContentLoaded', function () {
+        cookieconsent.run({
+          notice_banner_type: 'simple',
+          consent_type: 'express',
+          palette: 'light',
+          language: 'en',
+          page_load_consent_levels: ['strictly-necessary'],
+          notice_banner_reject_button_hide: false,
+          preferences_center_close_button_hide: false,
+          page_refresh_confirmation_buttons: false,
+          website_name: 'Performance Course',
+        });
       });
     </script>
   </head>
@@ -74,16 +73,28 @@
             <li><a href="about.html">About us</a></li>
             <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
             <li><a href="index.html#newsletter-section">Newsletter</a></li>
-            <li class="menu-icon"><img src="images/menu_icon.png" /></li>
+            <li class="menu-icon"><img srcset="images/menu_icon.webp" /></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <section class="hero">
-      <img class="desktop" src="images/Hero_Desktop.webp" />
-      <img class="mobile" src="images/Hero_Mobile.wHero_Desktop.webp" />
-      <img class="tablet" src="images/Hero_Tablet.wHero_Desktop.webp" />
+      <picture>
+        <source
+          width="576"
+          height="576"
+          media="(max-width: 575px)"
+          srcset="images/Hero_Mobile.webp 576w"
+        />
+        <source
+          width="960"
+          height="770"
+          media="(min-width: 576px) and (max-width: 960px)"
+          srcset="images/Hero_Tablet.webp 960w"
+        />
+        <img width="1920" height="893" src="images/Hero_Desktop.webp" />
+      </picture>
 
       <div class="hero-content">
         <div class="container">
@@ -97,7 +108,7 @@
       </div>
     </section>
 
-    <section class="country-bar hidden"></section>
+    <section class="country-bar"></section>
 
     <section class="best-sellers" id="best-sellers-section">
       <h1>Best Sellers</h1>
@@ -106,7 +117,7 @@
         <div class="container">
           <div class="product new">
             <div class="product-picture">
-              <img src="images/vr1.wHero_Desktop.webp" alt="product: Penom Case" />
+              <img srcset="images/vr1.webp" alt="product: Penom Case" />
             </div>
             <div class="product-info">
               <h5 class="categories">Headsets, Apple</h5>
@@ -121,7 +132,7 @@
           <div class="product new">
             <div class="product-picture">
               <img
-                src="images/vr2.wHero_Desktop.webp"
+                srcset="images/vr2.webp"
                 alt="product: Noise Cancelling Headphone"
               />
             </div>
@@ -138,7 +149,7 @@
           <div class="product">
             <div class="product-picture">
               <img
-                src="images/vr3.wHero_Desktop.webp"
+                srcset="images/vr3.webp"
                 alt="product: Canon Digital SLR EOS Rebel T6"
               />
             </div>
@@ -218,7 +229,6 @@
 
     <a href="#" id="open_preferences_center">Update cookies preferences</a>
 
-    <link rel="stylesheet" href="/css/styles.css" />
     <script type="module" src="/js/main.js"></script>
     <script type="text/javascript" src="/js/products.js"></script>
   </body>
