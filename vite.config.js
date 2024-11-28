@@ -1,5 +1,6 @@
 export default {
     root: '.',
+    base: '/',
     publicDir: 'images', // 정적 assets
     build: {
       outDir: 'out',
