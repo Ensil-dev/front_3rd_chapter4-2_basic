@@ -21,7 +21,8 @@ function displayProducts(products) {
         img.src = product.image;
         img.alt = `product: ${product.title}`;
         img.loading = 'lazy';
-        img.width = 250;
+        img.width = '150px';
+        img.height = '150px';
         pictureDiv.appendChild(img);
 
         // Create the product info div
