@@ -51,7 +51,7 @@
 ### 1. 개선 이유
 초기 성능 분석 결과, 바닐라 JS로 작성된 웹사이트의 여러 핵심 성능 지표들이 Google의 권장 기준에 미치지 못하는 것을 확인했습니다. 특히 레이아웃 변경(CLS)과 최대 콘텐츠 렌더링 시간(LCP)에서 상당한 개선이 필요했습니다. 이러한 성능 이슈들은 사용자 경험을 저해하고 검색 엔진 최적화에도 부정적인 영향을 미칠 수 있어 성능 개선 작업이 필요하다고 생각 했습니다.
 
-![개선 전 pagespeed 성능 지표](./images/report/before.webp)
+![개선 전 pagespeed 성능 지표](https://raw.githubusercontent.com/Ensil-dev/front_3rd_chapter4-2_basic/refs/heads/chapter4-2-jungyoon/images/report/before.webp)
 
 ## 2. 개선 방법
 
@@ -67,7 +67,7 @@ Google Tag Manager의 초기화 시점을 조정하여 페이지 초기 로딩�
 레이아웃 변경을 최소화하기 위해 이미지 요소들에 명시적인 크기를 지정하고, CSS를 통해 컨테이너의 크기를 사전에 확보했습니다. 이를 통해 콘텐츠 로딩 중 발생하는 레이아웃 변경을 크게 줄일 수 있었습니다.
 
 ## 3. 개선 후 향상된 지표
-![개선 후 향상된 성능 지표](./images/report/after.webp)
+![개선 후 향상된 성능 지표](https://raw.githubusercontent.com/Ensil-dev/front_3rd_chapter4-2_basic/refs/heads/chapter4-2-jungyoon/images/report/after.webp)
 
 | 지표                           | 개선 전  | 개선 후  | 개선율  |
 |--------------------------------|---------|---------|--------|
